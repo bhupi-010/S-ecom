@@ -6,6 +6,8 @@ import Products from "./components/Products";
 import Product from "./components/Product";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Cart from "./components/Cart";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { initializeApp } from "firebase/app";
@@ -31,6 +33,7 @@ function App() {
           <ProtectedRoute path="*" />
         </Switch>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }

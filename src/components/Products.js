@@ -15,7 +15,6 @@ export default function Products() {
   useEffect(() => {
     setLoading(true);
     axios.get(`https://fakestoreapi.com/products`).then((res) => {
-     
       setData(res.data);
       setFilterData(res.data);
       dispatch(getProducts(res.data));
@@ -46,7 +45,6 @@ export default function Products() {
         </div>
       ) : (
         <div>
-         {  console.log(data)}
           <div className="buttons d-flex justify-content-center mb-5 my-3">
             <button
               className="btn btn-outline-dark me-2"

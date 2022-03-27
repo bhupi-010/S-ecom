@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,11 +35,20 @@ const Login = () => {
 
         dispatch(logIn(userEmail));
         setLoading(false);
+        toast.success("Login sucessful", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .catch((error) => {
         toast.error("login failed " + error.message, {
-          position: "top-center",
-          autoClose: 5000,
+          position: "top-right",
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -118,7 +127,6 @@ const Login = () => {
                                   </Link>
                                 </p>
                               </Form>
-                              <ToastContainer />
                             </div>
                           </div>
                         </div>

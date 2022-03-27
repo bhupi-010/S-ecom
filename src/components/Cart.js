@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { delCartItem } from "../action/index";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Cart() {
@@ -10,18 +10,17 @@ function Cart() {
 
   const dispatch = useDispatch();
 
-  const del = (item, quantity) => {
+  const del = (item,price) => {
+    dispatch(delCartItem(item,price));
     toast.success(" product deleted sucessfully", {
-      position: "top-center",
-      autoClose: 3000,
+      position: "top-right",
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
     });
-    dispatch(delCartItem(item, quantity));
-   
   };
   return (
     <div>
@@ -60,7 +59,7 @@ function Cart() {
                 <td>
                   <button
                     className="btn btn-danger"
-                    onClick={() => del(item, quantity)}
+                    onClick={() => del(item,price)}
                   >
                     <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
                   </button>
@@ -71,7 +70,6 @@ function Cart() {
         </tbody>
       </table>
       <h2 className="total">GrandTotal:{grandTotal > 0 ? grandTotal : 0}</h2>
-      <ToastContainer />
     </div>
   );
 }

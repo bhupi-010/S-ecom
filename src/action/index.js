@@ -27,12 +27,13 @@ export const addToCart = (product,quan) => {
 };
 
 
-export const delCartItem = (product,quantity) => {
+export const delCartItem = (item,price) => {
   return {
     type: "DEL_CART_ITEM",
     payload: {
-      product: product,
-      quantity:quantity
+      product: item,
+      quantity:item.quantity,
+      price:price,
     },
   };
 };

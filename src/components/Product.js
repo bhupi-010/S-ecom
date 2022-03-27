@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "../action/index";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Product() {
@@ -14,7 +14,7 @@ function Product() {
     dispatch(addToCart(product, quan));
 
     toast.success("item added to cart sucessfully", {
-      position: "top-center",
+      position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -61,8 +61,6 @@ function Product() {
             <Link className="btn btn-primary mx-2" to="/cart">
               view cart
             </Link>
-
-            <ToastContainer />
           </div>
         </div>
       </div>

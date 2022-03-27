@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
@@ -32,13 +32,22 @@ const Register = () => {
         console.log(result, "this is login");
         setLoading(false);
         setRedirect(true);
+        toast.success("Registration sucessful", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .catch((error) => {
-        console.log(error, "this is failed to login");
+        console.log(error.message, "this is failed to login");
         setLoading(false);
         toast.error(error.message, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -65,7 +74,6 @@ const Register = () => {
               }}
             >
               {(formik) => {
-                console.log(formik);
                 return (
                   <>
                     <section className="vh-80 " id="reg-back">
@@ -125,7 +133,7 @@ const Register = () => {
                                       </Link>
                                     </p>
                                   </Form>
-                                  <ToastContainer />
+                                  {/* <ToastContainer /> */}
                                 </div>
                               </div>
                             </div>

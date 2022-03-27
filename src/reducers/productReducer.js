@@ -4,9 +4,8 @@ const initialState = {
   cart: [],
   cartQuantity: 0,
   grandTotal: 0,
-  email:null,
-  loggedIn:false,
- 
+  email: null,
+  loggedIn: false,
 };
 
 const productReducer = (state = initialState, action) => {
@@ -30,14 +29,14 @@ const productReducer = (state = initialState, action) => {
         parseInt(action.payload.quantity) *
         parseFloat(action.payload.product.price);
       const checkProduct = state.cart.find(
-        (pro) => pro.product === action.payload.product
+        (pro) => pro.product.id === action.payload.product.id
       );
       if (checkProduct) {
         const quan =
           parseInt(checkProduct.quantity) + parseInt(action.payload.quantity);
         const pro = checkProduct.product;
         const newCart = state.cart.filter(
-          (item) => item.product !== action.payload.product
+          (item) => item.product.id !== action.payload.product.id
         );
         state = {
           ...state,
@@ -65,7 +64,11 @@ const productReducer = (state = initialState, action) => {
     case "DEL_CART_ITEM":
       const subGrand =
         parseInt(action.payload.quantity) *
-        parseFloat(action.payload.product.price);
+        parseFloat(action.payload.price);
+        console.log(action.payload.quantity)
+        console.log(action.payload.price);
+        console.log(subGrand);
+        console.log(state.grandTotal);
       const newCart = state.cart.filter(
         (item) => item !== action.payload.product
       );
@@ -78,21 +81,19 @@ const productReducer = (state = initialState, action) => {
         grandTotal: state.grandTotal - subGrand,
       };
 
-    
+    case "LOG_IN":
+      return {
+        ...state,
+        email: action.payload.email,
+        loggedIn: true,
+      };
 
-      case "LOG_IN":
-        return {
-          ...state,
-          email: action.payload.email,
-          loggedIn: true,
-        };
-
-      case "LOG_OUT":
-        return {
-          ...state,
-          email: null,
-          loggedIn: false,
-        };
+    case "LOG_OUT":
+      return {
+        ...state,
+        email: null,
+        loggedIn: false,
+      };
 
     default:
       return state;
