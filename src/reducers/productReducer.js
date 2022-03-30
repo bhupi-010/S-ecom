@@ -25,9 +25,14 @@ const productReducer = (state = initialState, action) => {
     case "ADD_TO_CART":
       const newCartQuantity =
         state.cartQuantity + parseInt(action.payload.quantity);
-      const addGrand =
+      const addGrand = (
         parseInt(action.payload.quantity) *
-        parseFloat(action.payload.product.price);
+        parseFloat(action.payload.product.price)
+      ).toFixed(2);
+      const newGrandTotal = (
+        Number(state.grandTotal) + Number(addGrand)
+      ).toFixed(2);
+
       const checkProduct = state.cart.find(
         (pro) => pro.product.id === action.payload.product.id
       );
@@ -48,14 +53,14 @@ const productReducer = (state = initialState, action) => {
             },
           ],
           cartQuantity: newCartQuantity,
-          grandTotal: state.grandTotal + addGrand,
+          grandTotal: newGrandTotal,
         };
       } else {
         state = {
           ...state,
           cart: [...state.cart, action.payload],
           cartQuantity: newCartQuantity,
-          grandTotal: state.grandTotal + addGrand,
+          grandTotal: newGrandTotal,
         };
       }
 
@@ -63,12 +68,8 @@ const productReducer = (state = initialState, action) => {
 
     case "DEL_CART_ITEM":
       const subGrand =
-        parseInt(action.payload.quantity) *
-        parseFloat(action.payload.price);
-        console.log(action.payload.quantity)
-        console.log(action.payload.price);
-        console.log(subGrand);
-        console.log(state.grandTotal);
+        parseInt(action.payload.quantity) * parseFloat(action.payload.price);
+
       const newCart = state.cart.filter(
         (item) => item !== action.payload.product
       );

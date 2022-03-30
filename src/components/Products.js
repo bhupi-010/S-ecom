@@ -14,12 +14,15 @@ export default function Products() {
   const dispatch = useDispatch();
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://fakestoreapi.com/products`).then((res) => {
-      setData(res.data);
-      setFilterData(res.data);
-      dispatch(getProducts(res.data));
-      setLoading(false);
-    });
+    const GetProducts = async () => {
+      await axios.get(`http://localhost:3001/products`).then((res) => {
+        setData(res.data);
+        setFilterData(res.data);
+        dispatch(getProducts(res.data));
+        setLoading(false);
+      });
+    };
+    GetProducts();
   }, [dispatch]);
 
   const showProduct = (item) => {

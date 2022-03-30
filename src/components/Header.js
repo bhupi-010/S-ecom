@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "../action/index";
-import { getAuth ,signOut } from "firebase/auth";
+import { toast } from "react-toastify";
+import { getAuth, signOut } from "firebase/auth";
 function Header() {
   const cartQuantity = useSelector(
     (state) => state.productReducer.cartQuantity
@@ -16,7 +17,15 @@ function Header() {
   const handleLogOut = () => {
     signOut(auth);
     dispatch(logOut());
-    console.log("logged out");
+    toast.success("logout sucessful", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -55,25 +64,31 @@ function Header() {
                     </Link>
                   </li>
                 </ul>
-               
-                  <Link to="/cart" className="btn btn-outline-light ms-2">
-                    <i className="fa fa-solid fa-cart-arrow-down me-1 ">
+
+                <Link to="/cart" className="btn btn-outline-light ms-2 position-relative">
+               <h5> <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark ">
                       {cartQuantity > 0 ? cartQuantity : null}
-                    </i>
-                    cart
-                  </Link>
-                  <div className=" ms-2 text-white text-center">
-                    <i
-                      className="fa fa-user-circle-o fa-lg"
-                      aria-hidden="true"
-                    ></i>
-                    {loggedIn ? email : null}
-                    <br />
-                    <button className="btn btn-danger btn-sm" onClick={handleLogOut}>
-                      Logout
-                    </button>
-                  </div>
-                
+                      <span className="visually-hidden">unread messages</span>
+                    </span></h5>
+                  <i className="fa fa-solid fa-cart-arrow-down me-1 ">
+                    
+                  </i>
+                  cart
+                </Link>
+                <div className=" ms-4 text-white text-center">
+                  <i
+                    className="fa fa-user-circle-o fa-lg"
+                    aria-hidden="true"
+                  ></i>
+                  {loggedIn ? email : null}
+                  <br />
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={handleLogOut}
+                  >
+                    Logout
+                  </button>
+                </div>
               </div>
             </div>
           </nav>
@@ -91,7 +106,6 @@ function Header() {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
-              
                   <li className="nav-item">
                     <Link className="nav-link text-light" to="/">
                       About

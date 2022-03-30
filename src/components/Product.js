@@ -11,6 +11,7 @@ function Product() {
   const dispatch = useDispatch();
 
   const add = (product, quan) => {
+    if(quan > 0){
     dispatch(addToCart(product, quan));
 
     toast.success("item added to cart sucessfully", {
@@ -22,6 +23,17 @@ function Product() {
       draggable: true,
       progress: undefined,
     });
+  }else{
+    toast.error("enter valid quantity", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
   };
 
   return (
@@ -38,7 +50,7 @@ function Product() {
           </div>
           <div className="col-md-8 text-center">
             <div className="card-body ">
-              <h5 className="card-title">{productData.title}</h5>
+              <h5 className="card-header">{productData.title}</h5>
               <p className="card-text">{productData.description}</p>
               <p className="card-text ">category : {productData.category}</p>
               <p className="card-text ">Price : ${productData.price}</p>

@@ -3,7 +3,6 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../action";
@@ -139,6 +138,7 @@ const Login = () => {
           )}
         </div>
       )}
+
     </div>
   );
 };
