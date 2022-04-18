@@ -76,14 +76,17 @@ const Register = () => {
               {(formik) => {
                 return (
                   <>
-                    <section className="vh-80 " id="reg-back">
-                      <div className="mask d-flex align-items-center h-100 ">
+                    <section className=" py-4" id="reg-back">
+                      <div className="mask d-flex align-items-center h-80 ">
                         <div className="container h-100">
                           <div className="row d-flex justify-content-center align-items-center h-100 mt-5">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                               <div className="card" id="reg-card">
+                              <div className="loginImage">
+                              <img src="login.png" width="250" height="200" alt="login" />
+                            </div>
                                 <div className="card-body p-2 ">
-                                  <h2 className="text-bold text-center mb-5 ">
+                                  <h2 className="text-bold text-center mb-2 ">
                                     Register
                                   </h2>
                                   <Form>
@@ -101,7 +104,7 @@ const Register = () => {
                                         <div>{formik.errors.email}</div>
                                       ) : null}
                                     </div>
-                                    <div className="form-outline ">
+                                    <div className="form-outline mb-3 ">
                                       <label className="form-label">
                                         password
                                       </label>

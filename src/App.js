@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import Product from "./components/Product";
+import CheckOut from "./components/CheckOut";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import { ToastContainer } from "react-toastify";
@@ -13,6 +14,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { config } from "./config/config";
 import ProtectedRoute from "./components/ProtectedRoute";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 initializeApp(config.firebaseConfig);
 
@@ -26,7 +29,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <ProtectedRoute path="/home" component={Home} />
-
+          <ProtectedRoute path="/checkout" component={CheckOut} />
           <ProtectedRoute path="/products" component={Products} />
           <ProtectedRoute path="/product" component={Product} />
           <ProtectedRoute path="/cart" component={Cart} />

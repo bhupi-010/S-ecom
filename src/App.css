@@ -36,3 +36,20 @@
 #reg-card{
   border-radius: 15px;
 }
+
+
+.loginImage {
+margin-left: 140px;
+}
+.main{
+  background-color: antiquewhite;
+}
+#reg-back{
+  background-color: rgb(74, 151, 182);
+}
+
+.sli{
+  width: 1365px;
+  height: 490px;
+}
+/* Language: css */

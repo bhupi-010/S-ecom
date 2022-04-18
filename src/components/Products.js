@@ -15,7 +15,7 @@ export default function Products() {
   useEffect(() => {
     setLoading(true);
     const GetProducts = async () => {
-      await axios.get(`http://localhost:3001/products`).then((res) => {
+      await axios.get(`${process.env.REACT_APP_API}`).then((res) => {
         setData(res.data);
         setFilterData(res.data);
         dispatch(getProducts(res.data));
@@ -50,31 +50,31 @@ export default function Products() {
         <div>
           <div className="buttons d-flex justify-content-center mb-5 my-3">
             <button
-              className="btn btn-outline-dark me-2"
+              className="btn btn-outline-dark  mx-2"
               onClick={() => setFilterData(data)}
             >
               All
             </button>
             <button
-              className="btn btn-outline-dark me-2"
+              className="btn btn-outline-dark mx-2"
               onClick={() => filterProduct("men's clothing")}
             >
               men's clothing
             </button>
             <button
-              className="btn btn-outline-dark me-2"
+              className="btn btn-outline-dark mx-2"
               onClick={() => filterProduct("women's clothing")}
             >
               women's clothing
             </button>
             <button
-              className="btn btn-outline-dark me-2"
+              className="btn btn-outline-dark mx-2"
               onClick={() => filterProduct("electronics")}
             >
               electronics
             </button>
             <button
-              className="btn btn-outline-dark me-2"
+              className="btn btn-outline-dark mx-2"
               onClick={() => filterProduct("jewelery")}
             >
               jewelery

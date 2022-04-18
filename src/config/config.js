@@ -1,3 +1,4 @@
+
 export const config = {
     firebaseConfig :{
         apiKey: "AIzaSyA7PVcMrocc0NWfKyrKj2EoQH3qdiOQ-IY",
@@ -8,4 +9,10 @@ export const config = {
         messagingSenderId: "929589819027",
         appId: "1:929589819027:web:48fea4dced14a86b553f66"
       }
+
+
+      
     };
+
+
+  

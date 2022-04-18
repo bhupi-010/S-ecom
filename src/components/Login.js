@@ -36,7 +36,7 @@ const Login = () => {
         setLoading(false);
         toast.success("Login sucessful", {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -75,14 +75,17 @@ const Login = () => {
               }}
             >
               {({ errors, touched }) => (
-                <section className="vh-80 " id="reg-back">
-                  <div className="mask d-flex align-items-center h-100 ">
-                    <div className="container h-100">
-                      <div className="row d-flex justify-content-center align-items-center h-100 mt-5">
+                <section className=" mb-5 " id="reg-back">
+                  <div className="mask d-flex align-items-center h-75 ">
+                    <div className="container h-100 ">
+                      <div className="row d-flex justify-content-center align-items-center h-100 mt-5 ">
                         <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                          <div className="card" id="reg-card">
+                          <div className="card  border border-secondary border-4" id="reg-card">
+                            <div className="loginImage pt-2">
+                              <img src="login.png" width="250" height="200" alt="login" />
+                            </div>
                             <div className="card-body p-2 ">
-                              <h2 className="text-bold text-center mb-5 ">
+                              <h2 className="text-bold text-center mb-2 ">
                                 Login
                               </h2>
                               <Form>
@@ -93,22 +96,26 @@ const Login = () => {
                                     type="email"
                                     className="form-control form-control-sm"
                                   />
+                                  <div className="text-center">
                                   {errors.email && touched.email ? (
                                     <div>{errors.email}</div>
                                   ) : null}
+                                  </div>
                                 </div>
-                                <div className="form-outline ">
+                                <div className="form-outline mb-3 ">
                                   <label className="form-label">password</label>
                                   <Field
                                     name="password"
                                     className="form-control form-control-sm"
                                   />
+                                  <div className="text-center">
                                   {errors.password && touched.password ? (
                                     <div>{errors.password}</div>
                                   ) : null}
+                                  </div>
                                 </div>
 
-                                <div className="d-flex justify-content-center form-control-sm">
+                                <div className="d-flex justify-content-center form-control-sm ">
                                   <button
                                     type="submit"
                                     className="btn btn-success btn-sm "
@@ -138,7 +145,6 @@ const Login = () => {
           )}
         </div>
       )}
-
     </div>
   );
 };

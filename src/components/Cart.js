@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { delCartItem } from "../action/index";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
+
 
 function Cart() {
   const cart = useSelector((state) => state.productReducer.cart);
@@ -69,7 +71,12 @@ function Cart() {
           })}
         </tbody>
       </table>
-      <h2 className="total">GrandTotal:{grandTotal > 0 ? grandTotal : 0}</h2>
+      <div className="total text-center">
+      <h2>GrandTotal:{grandTotal > 0 ? grandTotal : 0}</h2>
+      <Link to="/checkout">
+      <button className="btn btn-primary ">Checkout</button>
+      </Link>
+      </div>
     </div>
   );
 }
