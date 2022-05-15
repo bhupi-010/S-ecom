@@ -4,6 +4,7 @@ import { delCartItem } from "../action/index";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import StripeCheckoutButton from "./StripeCheckoutButton";
 
 
 function Cart() {
@@ -73,9 +74,11 @@ function Cart() {
       </table>
       <div className="total text-center">
       <h2>GrandTotal:{grandTotal > 0 ? grandTotal : 0}</h2>
-      <Link to="/checkout">
+      {/* <Link to="/checkout">
       <button className="btn btn-primary ">Checkout</button>
-      </Link>
+      </Link> */}
+      <StripeCheckoutButton price={grandTotal} />
+
       </div>
     </div>
   );

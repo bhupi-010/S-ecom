@@ -15,7 +15,8 @@ export default function Products() {
   useEffect(() => {
     setLoading(true);
     const GetProducts = async () => {
-      await axios.get(`${process.env.REACT_APP_API}`).then((res) => {
+      // await axios.get(`${process.env.REACT_APP_API}`).then((res) => {
+        await axios.get(`http://fakestoreapi.com/products`).then((res) => {
         setData(res.data);
         setFilterData(res.data);
         dispatch(getProducts(res.data));

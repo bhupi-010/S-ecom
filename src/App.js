@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import Products from "./components/Products";
 import Product from "./components/Product";
 import CheckOut from "./components/CheckOut";
+import About from "./components/About";
+import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import { ToastContainer } from "react-toastify";
@@ -30,6 +32,8 @@ function App() {
           <Route path="/login" component={Login} />
           <ProtectedRoute path="/home" component={Home} />
           <ProtectedRoute path="/checkout" component={CheckOut} />
+          <ProtectedRoute path="/about" component={About} />
+          <ProtectedRoute path="/contact" component={Contact} />
           <ProtectedRoute path="/products" component={Products} />
           <ProtectedRoute path="/product" component={Product} />
           <ProtectedRoute path="/cart" component={Cart} />

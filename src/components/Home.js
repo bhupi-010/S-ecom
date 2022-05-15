@@ -3,46 +3,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-// import {
-//   getFirestore,
-//   collection,
-//   getDocs,
-//   setDoc,
-//   doc,
-// } from "firebase/firestore";
-// import { getDatabase, ref, child, get } from "firebase/database";
-
 function Home() {
-  // const db = getFirestore();
-  // getDocs(collection(db, "products"))
-  //   .then((collection) => {
-  //     let products = [];
-  //     collection.forEach((doc) => {
-  //       products.push(doc.data());
-  //     });
-  //     console.log(products);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-
-  // setDoc(doc(db, "products", "prod"), {
-  //   name: "hello",
-  //   roll: 3,
-  // });
-
-  // extra
-  //   const dbRef = ref(getDatabase());
-  // get(child(dbRef, `users/${userId}`)).then((snapshot) => {
-  //   if (snapshot.exists()) {
-  //     console.log(snapshot.val());
-  //   } else {
-  //     console.log("No data available");
-  //   }
-  // }).catch((error) => {
-  //   console.error(error);
-  // });
-
+ 
   var settings = {
     dots: true,
     infinite: true,

@@ -62,12 +62,12 @@ function Header() {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link text-light" to="/">
+                    <Link className="nav-link text-light" to="/about">
                       About
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link text-light" to="/">
+                    <Link className="nav-link text-light" to="/contact">
                       Contact
                     </Link>
                   </li>
@@ -127,16 +127,6 @@ function Header() {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
-                  <li className="nav-item">
-                    <Link className="nav-link text-light" to="/">
-                      About
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link text-light" to="/">
-                      Contact
-                    </Link>
-                  </li>
                 </ul>
                 <div className="buttons">
                   <Link to="/login" className="btn btn-outline-light">
